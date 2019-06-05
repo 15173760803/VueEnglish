@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>搜索</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        .top{
+            width: 100%;
+            height: 0.6rem;
+            background-color: gainsboro;
+            position: fixed;
+            top:0px;
+            z-index: 999;
+        }
+        .span1{
+            width: 0.3rem;
+            height: 0.3rem;
+           /* background-color: white;*/
+            float: left;
+            margin-top: 0.2rem;
+            margin-left: 0.2rem;
+            background-image: url("img/zuo1.png");
+            background-size: cover;
+        }
+        .top>input{
+            float: left;
+            width: 2rem;
+            height: 0.3rem;
+            font-size: 0.15rem;
+            text-align: center;
+            margin-top: 0.2rem;
+            margin-left: 0.08rem;
+            border: none;
+            border-bottom: 0.01rem solid gray;
+            background-color: gainsboro;
+            outline: none;
+        }
+        .span2{
+            width: 0.3rem;
+            height: 0.3rem;
+            /*background-color: white;*/
+            float: left;
+            margin-top: 0.2rem;
+            margin-left: 0.11rem;
+            background-image: url("img/sousuo1.png");
+            background-size: cover;
+        }
+        .box{
+            width: 100%;
+
+            margin-top: 0.6rem;
+        }
+        .shu2sum{
+            width: 100%;
+            font-size: 0px;
+        }
+        .shu2{
+            /*top:0px;*/
+            width: 49%;
+            height: 2.3rem;
+            /* background-color:burlywood;*/
+            float: left;
+            border-left: 0.01rem solid darkgrey;
+        }
+        .shu2>div:nth-child(1)>img{
+            width: 100%;
+            height: 1.525rem;
+            position:relative;
+        }
+        .shu2>div:nth-child(2){
+            box-sizing: border-box;
+            padding-top: 0.1rem;
+            overflow: hidden;
+        }
+        .shu2>div:nth-child(2)>p{
+            font-size: 0.14rem;
+
+        }
+        .shu2>div:nth-child(2){
+            height: 0.4rem;
+            width: 100%;
+            background-color: pink;
+        }
+        .jia3{
+            font-size: 0.2rem;
+            color: red;
+        }
+        .shu2>div:nth-child(3)>span:nth-child(1){
+            font-size: 0.14rem;
+            color: red;
+        }
+        .shu2span {
+            width: 0.255rem;
+            height: 0.255rem;
+            /* background-color: cyan; */
+            display: inline-block;
+            float: right;
+            background-image: url(img/ll1.png);
+            background-size: cover;
+        }
+        .shu2>div:nth-child(3){
+            font-size: 0px;
+            background-color: #dddddd;
+            bottom: 0px;
+        }
+        .span2:hover{
+            background-image: url("img/sousuo2.png");
+        }
+        .nono{
+            width: 100%;
+            height: 1rem;
+            font-size: 0.15rem;
+            text-align: center;
+            display: none;
+            color: gray;
+        }
+        .nomore{
+            width: 100%;
+            height: 2rem;
+            font-size: 0.15rem;
+            text-align: center;
+            display: none;
+            color: gray;
+        }
+        .clear{
+            clear: both;
+
+        }
+        .scaledemo{
+            -webkit-transform: scale(1.2, 1.2);
+            -moz-transform: scale(1.2, 1.2);
+            -ms-transform: scale(1.2, 1.2);
+            -o-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+
+            -webkit-transition:all 1s 0s linear;
+            -moz-transition: all 1s 0s linear;
+            -ms-transition: all 1s 0s linear;
+            -o-transition: all 1s 0s linear;
+            transition: all 1s 0s linear;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+    <span class="span1" onclick="fun1()"></span>
+    <input type="search" name="what" placeholder="请输入商品名" id="inputa"/>
+    <span class="span2" onclick="fun2()"></span>
+</div>
+<div class="box">
+    <div class="shu2sum">
+        <!--<div class="shu2">-->
+        <!--<div><img src="img2/1.jpg" /></div>-->
+        <!--<div><p>四级必备词汇书+送修炼手册</p></div>-->
+        <!--<div>-->
+        <!--<span>￥</span>-->
+        <!--<span class="jia3">44.9</span>-->
+        <!--<span class="shu2span" onclick="lve()"></span>-->
+        <!--</div>-->
+
+
+        <!--</div>-->
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="nomore">没有更多商品了···</div>
+<div class="nono">没有此商品···</div>
+<script type="text/javascript">
+
+    function fun2(){
+        var gets=$("#inputa").val().trim();
+
+        $.ajax({
+            url:"http://localhost:3000/sousuojs",
+            type:"post",
+            data:{name1:gets},
+            success:function(e1){
+                console.log(e1);
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2' >  <div><img src='"+ v.srcc+"' class='ddemotu' id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+                    console.log(v.id);
+                })
+
+                $(".shu2sum").html(newHtml3);
+                $(".nomore").css("display","block");
+                if(e1.length==0){
+                  $(".nono").css("display","block");
+                }else{
+                    $(".nono").css("display","none");
+                }
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+    //放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+    }
+
+
+
+
+
+
+function fun1(){
+    $(".span1").css("backgroundImage","url('img/zuo2.png')");
+    window.history.back();
+    window.location.href="shouye.html";
+}
+
+
+    function fun(){
+
+    }
+    (function () {
+        var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = document.documentElement.clientWidth;
+        var timer;
+        function setRem() {
+            clientWidth = document.documentElement.clientWidth;
+            var nowPX = clientWidth / 320 * 100;
+            document.documentElement.style.fontSize = nowPX + 'px';
+        }
+        clientWidth !== 320 && setRem();
+        window.addEventListener(supportsOrientationChange, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                setRem();
+            }, 300);
+        }, false);
+    })();
+
+</script>
+</body>
+</html>

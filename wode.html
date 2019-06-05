@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta charset="UTF-8">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <title>我的</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .foot2{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*     background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot2img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/categroy1.png");
+            background-size: cover;
+            /*        background-color: #5bc0de;
+                    margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot3{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*        background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot3img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/guan1.png");
+            background-size: cover;
+            /*   background-color: #5bc0de;*/
+            /*margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot4{
+            width: 0.62rem;
+            height: 0.7rem;
+            /* background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot4img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/car1.png");
+            /* background-size:0.43rem 0.4rem;
+             background-position: 0.016rem 0rem;*/
+            background-size: cover;
+            /*   background-color: #5bc0de;
+               margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot5{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*      background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot5img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/we2.png");
+            background-size: cover;
+            /*   background-color: #5bc0de;
+               margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot p{
+            color:white;
+            font-size: 0.155rem;
+            font-weight:600;
+            margin-top: 0.05rem;
+        }
+        /*.foot p:hover{*/
+        /*color: green;*/
+        /*font-size: 0.155rem;*/
+        /*font-weight:600;*/
+        /*margin-top: 0.05rem;*/
+        /*}*/
+
+        .demofoot{
+            width: 3.1rem;
+            margin: 0px auto;
+
+        }
+        .foot1{
+            width: 0.62rem;
+            height: 0.7rem;
+            /* background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot1img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/first2.png");
+            background-size: cover;
+            /*  background-color: #5bc0de;
+              margin-bottom: 0.03rem;*/
+            margin: 0px auto;
+
+        }
+        .foot{
+            width: 100%;
+            height: 0.7rem;
+            background-color:gray;
+            bottom: 0px;
+            position: fixed;
+            z-index: 999;
+        }
+        #p5{
+            color: springgreen;
+        }
+         .top {
+             width: 100%;
+             height: 2rem;
+
+             background-image: url("img/3.jpg");
+             background-size: cover;
+             background-position: -1rem -1rem;
+         }
+
+        .topcenter{
+            width: 80%;
+            height: 1rem;
+            background-color: #a7dbd8;
+            position: absolute;
+            top:1rem;
+            left: 0.3rem;
+            box-sizing: border-box;
+            /*padding-top: 0.3rem;*/
+           /* background-color: rgba(225, 224, 212, 0.5);*/
+            background-color: white;
+            opacity: 0.7;
+            border-radius: 0.2rem;
+
+        }
+        .littleimg{
+            width: 0.7rem;
+            height: 0.7rem;
+            background-color: darkgray;
+            border-radius: 50%;
+            margin: 0 auto;
+            background-image: url("img/pepoles.png");
+            background-size: cover;
+        }
+        #user{
+           font-size: 0.2rem;
+            text-align: center;
+
+
+        }
+        .zhongjian{
+            width: 100%;
+        }
+        .zhongjian>ul{
+            list-style-type: none;
+            font-size: 0px;
+            border-top: 0.5rem solid gainsboro;
+        }
+        .zhongjian>ul a{
+            text-decoration: none;
+            font-size: 0.2rem;
+            font-family: "黑体";
+            color:white;
+        }
+        .zhongjian>ul>li{
+            width: 100%;
+            height: 0.5rem;
+            background-color:darkgrey;
+            text-align: center;
+            line-height: 0.5rem;
+        }
+        .span1{
+            display: inline-block;
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/cc.png");
+            background-size:cover;
+            position: absolute;
+            left: 0rem;
+            margin-top: 0.07rem;
+        }
+        .span4{
+            display: inline-block;
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/sc.png");
+            background-size:cover;
+            position: absolute;
+            left: 0rem;
+            margin-top: 0.07rem;
+        }
+        .span3{
+            display: inline-block;
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/ss.png");
+            background-size:cover;
+            position: absolute;
+            left: 0rem;
+            margin-top: 0.07rem;
+        }
+        .span2{
+            display: inline-block;
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/rr2.png");
+            background-size:cover;
+            position: absolute;
+            right: 0rem;
+            margin-top: 0.09rem;
+        }
+        .btna{
+            width: 1.5rem;
+            height: 0.4rem;
+            font-size: 0.2rem;
+            border: none;
+            margin-left: 0.8rem;
+            margin-top:1.2rem;
+        }
+        .alertt{
+            width:2.5rem;
+            height: 1.2rem;
+            background-color: rgba(255, 169, 206, 0.5);
+            position: absolute;
+            left: 0.3rem;
+            top:2.5rem;
+            font-size: 0px;
+            box-sizing: border-box;
+            padding-top: 0.2rem;
+            display: none;
+        }
+        .alertt>span:nth-child(1){
+            font-size: 0.15rem;
+            font-family: "黑体";
+           /* font-size: 0px;*/
+            width: 2rem;
+            height: 0.5rem;
+            margin-left: 0.25rem;
+            color:white;
+            margin-top: 0.4rem;
+
+        }
+        .btn1{
+              width: 0.6rem;
+              height: 0.25rem;
+              font-size: 0.12rem;
+              color: white;
+             margin-left: 0.62rem;
+            margin-top: 0.3rem;
+          }
+        .btn2{
+            width: 0.6rem;
+            height: 0.25rem;
+            font-size: 0.12rem;
+            color: white;
+            margin-left: 0.05rem;
+            margin-top: 0.3rem;
+        }
+       .res{
+           width:2.5rem;
+           height: 1.5rem;
+           background-color: rgba(168, 176, 170, 0.8);
+           position: absolute;
+           left: 0.3rem;
+           top:3rem;
+           font-size: 0px;
+           box-sizing: border-box;
+           padding-top: 0.1rem;
+           display: none;
+           border-radius: 0.3rem;
+       }
+       .res>span{
+           width: 0.7rem;
+           height: 0.25rem;
+           font-size: 0.15rem;
+           margin-left: 0.1rem;
+       }
+       .res>input{
+           width: 1.5rem;
+           height: 0.25rem;
+           font-size: 0.15rem;
+           outline: none;
+           box-sizing: border-box;
+           padding-left: 0.1rem;
+           margin-left: 0.1rem;
+           border-radius: 0.5rem;
+           border: none;
+           margin-bottom: 0.03rem;
+
+       }
+        .success{
+            display: block;
+            width: 2.5rem;
+            height: 0.3rem;
+            font-size: 0.15rem;
+            text-align: center;
+            color: white;
+
+        }
+        .btnc{
+            width: 0.7rem;
+            height: 0.3rem;
+            font-size: 0.12rem;
+            color: black;
+            margin-left: 0.1rem;
+            margin-top: 0rem;
+            float: left;
+
+        }
+        .btnd{
+            width: 0.7rem;
+            height: 0.3rem;
+            font-size: 0.12rem;
+            color: black;
+            margin-left: 0.5rem;
+            margin-top: 0rem;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<!--<span></span>-->
+<div class="top">
+    <div class="topcenter">
+        <div id="user"></div>
+        <div class="littleimg"></div>
+    </div>
+</div>
+<div class="zhongjian">
+    <ul>
+
+        <li onclick="fun1()"><span class="span1"></span>  <a href="#">购物车</a><span class="span2"></span></li>
+        <li onclick="fun2()"><span class="span3"></span>  <a href="#">修改密码</a><span class="span2"></span></li>
+        <li onclick="funshou()"><span class="span4"></span>  <a href="#">收藏夹</a><span class="span2"></span></li>
+    </ul>
+</div>
+<button onclick="funleave()" class="btna">退出登录</button>
+<div class="alertt">
+    <span>当前页面只有登录后才能访问</span>
+    <button class="btn1" onclick="btna()">取消</button>
+    <button class="btn2" onclick="btnb()">登录</button>
+</div>
+
+<div class="res">
+ <span>手机号:</span><input type="text" id="inputa" placeholder="请输入手机号··"/><br>
+ <span>新密码:</span><input type="text" id="inputb" placeholder="请输入新密码··"/>
+ <div class="success"></div>
+ <button class="btnd" onclick="fun4()">取消</button>
+ <button class="btnc" onclick="fun3()">提交</button>
+</div>
+<div class="foot">
+    <div class="demofoot">
+        <div class="foot1" >
+            <div class="foot1img" onclick="funclick1()"></div>
+            <p id="p1">首页</p>
+        </div>
+        <div class="foot2" >
+            <div class="foot2img" onclick="funclick2()"></div>
+            <p id="p2">商品分类</p>
+        </div>
+        <div class="foot3" >
+            <div class="foot3img" onclick="funclick3()"></div>
+            <p id="p3">官网</p>
+        </div>
+        <div class="foot4">
+            <div class="foot4img" onclick="funclick4()"></div>
+            <p id="p4">购物车</p>
+        </div>
+        <div class="foot5">
+            <div class="foot5img" onclick="funclick5()"></div>
+            <p id="p5">我的</p>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    window.onload=function(){
+        var getval=localStorage.getItem("usertell");
+        if(getval==null){
+            $(".alertt").fadeIn(1000);
+//             function btna(){
+//                 window.location.href="shouye.html";
+//             }
+//            function btnb(){
+//                window.location.href="login.html";
+//            }
+
+        }else{
+            document.getElementById("user").innerHTML=getval;
+        }
+    }
+    function btna(){
+        window.location.href="shouye.html";
+    }
+    function btnb(){
+        window.location.href="login.html";
+    }
+    function funleave(){
+        localStorage.removeItem("usertell");
+        window.location.href="login.html";
+    }
+   function fun1(){
+       window.location.href="gouwuche.html";
+   }
+
+
+   function fun2(){
+     $(".res").fadeIn(1000);
+}
+
+    function fun3(){
+        var puta=$("#inputa").val().trim();//手机号
+        var putb=$("#inputb").val().trim();//密码
+        $.ajax({
+            url:"http://localhost:3000/xiugaijs",
+            type:"post",
+            data:{puta1:puta,putb1:putb},
+            success:function(data){
+            console.log(data);
+                if(data=="1"){
+                    $(".success").text("修改成功!");
+                    $(".res").fadeOut(3000);
+                }
+            }
+        })
+    }
+
+function fun4(){
+    document.getElementsByClassName("res")[0].style.display="none";
+}
+function funshou(){
+    window.location.href="sc.html";
+}
+
+    function funclick1(){
+        window.location.href="shouye.html";
+//     $("#p1").css("color","green");
+//     $(".foot1img").css("backgroundImage"," url('img/first1.png')");
+    }
+    function funclick2(){
+        window.location.href="fenlei.html";
+    }
+    function funclick3(){
+        window.location.href="guanwang.html";
+    }
+    function funclick4(){
+        window.location.href="gouwuche.html";
+    }
+    function funclick5(){
+        window.location.href="wode.html";
+
+    }
+
+
+    (function () {
+        var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = document.documentElement.clientWidth;
+        var timer;
+        function setRem() {
+            clientWidth = document.documentElement.clientWidth;
+            var nowPX = clientWidth / 320 * 100;
+            document.documentElement.style.fontSize = nowPX + 'px';
+        }
+        clientWidth !== 320 && setRem();
+        window.addEventListener(supportsOrientationChange, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                setRem();
+            }, 300);
+        }, false);
+    })();
+
+</script>
+</body>
+</html>

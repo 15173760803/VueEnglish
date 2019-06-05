@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        .fan{
+            width: 100%;
+            height: 0.7rem;
+            background-color: darkgrey;
+            box-sizing: border-box;
+            padding-top: 0.18rem;
+        }
+        .zuo{
+            width: 0.3rem;
+            height: 0.3rem;
+           /* background-color: #4dc71f;*/
+            background-image:url("img/zuo1.png");
+            background-size: cover;
+        }
+        .image{
+            width: 100%;
+            height: 4rem;
+           /* background-color: #4dc71f;*/
+        }
+        .button1{
+            width: 49.7%;
+            height:0.85rem;
+            font-size: 0.2rem;
+            text-align: center;
+            border:none;
+            background-color: red;
+            color: white;
+            margin-right: 0.15%;
+
+        }
+        .button2{
+            width: 49.7%;
+            height:0.85rem;
+            font-size: 0.2rem;
+            text-align: center;
+            border:none;
+            background-color: red;
+            color: white;
+            margin-left: 0.15%;
+        }
+        body{
+            font-size: 0px;
+        }
+         .conn{
+             width: 100%;
+             height: 5.2rem;
+/*             background-color: #4dc71f;*/
+
+         }
+        .div1{
+            width: 100%;
+        }
+        .div1{
+            width: 100%;
+            height: 3.8rem;
+            background-color: pink;
+        }
+        .div2{
+            width: 100%;
+            height: 0.5rem;
+/*            background-color: yellow;*/
+           border-bottom:0.02rem solid red;
+        }
+        .div3{
+            width: 100%;
+            height: 1.2rem;
+     /*       background-color: #a7dbd8;*/
+        }
+        .div1>img{
+            width: 100%;
+            height: 3.8rem;
+        }
+        .div2>span:nth-child(1){
+            font-size: 0.15rem;
+            color: red;
+        }
+        .div2>span:nth-child(2){
+            font-size: 0.3rem;
+            color:red;
+        }
+        .div3>span:nth-child(1){
+            display: inline-block;
+            width: 1.1rem;
+            height:0.25rem;
+            background-color: red;
+            font-size: 0.15rem;
+            color: white;
+            text-align: center;
+            border-radius: 100px;
+            line-height: 0.25rem;
+            font-family: "黑体";
+            margin-right: 0.2rem;
+
+        }
+        .div3>span:nth-child(2){
+              font-size: 0.17rem;
+          }
+       .div3>span:nth-child(3){
+            font-size: 0.17rem;
+        }
+        .success{
+            width:2.5rem;
+            height: 1rem;
+            background-color:white;
+            opacity: 0.7;
+            position: absolute;
+            top:3rem;
+            left: 0.25rem;
+            z-index: 10;
+            text-align: center;
+            border-radius: 30px;
+            display: none;
+
+        }
+        .success>span:nth-child(2){
+            display: inline-block;
+            width: 0.35rem;
+            height: 0.35rem;
+          /*  background-color:white;*/
+            position: absolute;
+            top:0.25rem;
+            left: 1.65rem;
+            background-image: url("img/yes.png");
+            background-size: cover;
+        }
+        .success>span:nth-child(1){
+            display: inline-block;
+            font-size: 0.2rem;
+            font-family:"黑体";
+            top:0.325rem;
+            left: 0.6rem;
+            position: absolute;
+        }
+        .btnshou{
+            width: 0.3rem;
+            height: 0.3rem;
+            /*background-color: white;*/
+            display: inline-block;
+            position: absolute;
+            background-image: url("img/sc.png");
+            background-size: cover;
+        }
+        .btnjia{
+            width: 0.3rem;
+            height: 0.3rem;
+            /*background-color: white;*/
+            display: inline-block;
+            position: absolute;
+            background-image: url("img/car1.png");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="fan">
+    <div class="zuo" onclick="fanhui()"></div>
+</div>
+<div class="conn">
+   <!-- <div class="div1"><img src="img2/1.jpg" alt=""/></div>
+    <div class="div2"><span>￥</span><span>90</span></div>
+    <div class="div3"><span>爱英语</span><span>第地产你哦都是可靠的破产</span></div>-->
+</div>
+<button class="button1" onclick="funs()"> 收藏商品<span class="btnshou"></span></button>
+<button class="button2" onclick="funin()">加入购物车<span class="btnjia"></span></button>
+<div class="success"> <span>添加成功哦</span><span></span></div>
+</body>
+<script type="text/javascript">
+
+
+
+    function GetRequest() {
+        var url = location.search; //获取url地址，到结尾的所有参数
+
+        var theRequest = new Object();//设置获取网页地址跟在问好后面的部分
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);//从第一个开始
+            strs = str.split("&");//返回键和值，以&分隔字符串，获得类似id=x这种元素数组
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);//解码//每一个数组元素以=分隔并赋值给对象
+            }
+        }
+
+        return theRequest;
+
+    }
+
+    var x=GetRequest()//接收到的对象
+    var newHtml="";
+    console.log(x);
+    $.ajax({
+       url:"http://localhost:3000/xiangqingjs",
+       type:"post",
+       data:{demoid: x.id},
+       success:function(data) {
+//           console.log(data);
+//           console.log(data[0].srcc);
+//           console.log(data[0].id);
+//           console.log(data[0].details);//详细信息
+//           console.log(data[0].pirce);
+//           console.log(data[0].name);
+//           console.log(data[0].tittlee);//标题
+           newHtml += "<div class='div1'><img src='" + data[0].srcc + "' alt=''/></div><div class='div2'><span>￥</span><span>" + data[0].pirce + "</span></div> <div class='div3'><span>爱英语</span>  <span>" + data[0].details + "</span><span>"+data[0].tittlee+"</span></div>"
+           document.getElementsByClassName("conn")[0].innerHTML = newHtml;
+
+
+
+
+       }
+
+    })
+
+
+//    var x=GetRequest()//接收到的对象
+//    var newshop=new Object();
+//    console.log(x);
+
+
+
+/*
+function fun(){
+   $.ajax({
+        url:"http://localhost:3000/xiangqingjs",
+      /!*  async:true,*!/
+        type:"post",
+        data:{demoid: x.id},
+
+        success:function(data) {
+ /!*           console.log(data);*!/
+            funb(data)
+
+        }
+
+    })
+}
+    fun();
+   function funb(a){
+       console.log(a);
+
+   }*/
+
+
+
+
+function fun(){
+    var num;
+    $.ajax({
+        url:"http://localhost:3000/xiangqingjs",
+        /*  async:true,*/
+        async:false,
+        type:"post",
+        data:{demoid: x.id},
+
+        success:function(data) {
+
+          num=data;
+        }
+
+    })
+    return num;
+}
+    var aa=fun();
+   console.log(aa);
+   var id=aa[0].id;
+    var name=aa[0].name;
+    var pirce=aa[0].pirce;
+    var src=aa[0].srcc;
+    var tittle=aa[0].tittlee;
+    var details=aa[0].details;
+    console.log(id);
+    console.log(name);
+    console.log(pirce);
+    console.log(src);
+    console.log(tittle);
+    console.log(details);
+    //收藏
+    function funs(){
+        var getval = localStorage.getItem("usertell");
+        if (getval == null) {
+            alert("登录请后收藏！");
+            window.location.href = "login.html";
+        } else {
+            console.log(getval);
+            $.ajax({
+                url: "http://localhost:3000/shoujs/",
+                type: "post",
+                data: {userphone: getval, shopid: id, shopname: name, shoppirce: pirce, shopsrc: src,shoptittlee:tittle,shopdetails:details},
+                success:function(data2){
+                    console.log(data2);
+                    if(data2=="1"){
+
+                        $(".success").fadeIn(1000);
+                        for(var i=1;i>0;i--){
+                            i--;
+                            if(i==0){
+                                $(".success").fadeOut();
+                            }
+                        }
+
+
+
+                    }else{
+                        document.getElementsByClassName("success")[0].style.display="none";
+                    }
+                }
+
+            })
+
+
+        }
+    }
+    function funin() {
+        var getval = localStorage.getItem("usertell");
+        if (getval == null) {
+            alert("登录请后再添加");
+            window.location.href = "login.html";
+        } else {
+            console.log(getval);
+            $.ajax({
+                url: "http://localhost:3000/car1js/",
+                type: "post",
+                data: {userphone: getval, shopid: id, shopname: name, shoppirce: pirce, shopsrc: src,shoptittlee:tittle,shopdetails:details},
+                success:function(data2){
+                    console.log(data2);
+                    if(data2=="1"){
+
+                        $(".success").fadeIn(1000);
+                        for(var i=1;i>0;i--){
+                            i--;
+                            if(i==0){
+                                $(".success").fadeOut();
+                            }
+                        }
+
+
+
+                    }else{
+                        document.getElementsByClassName("success")[0].style.display="none";
+                    }
+                }
+
+            })
+
+
+        }
+    }
+
+  //返回上一层
+    function fanhui(){
+        $(".zuo").css("backgroundImage","url('img/zuo2.png')");
+        window.history.back();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    (function () {
+        var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = document.documentElement.clientWidth;
+        var timer;
+        function setRem() {
+            clientWidth = document.documentElement.clientWidth;
+            var nowPX = clientWidth / 320 * 100;
+            document.documentElement.style.fontSize = nowPX + 'px';
+        }
+        clientWidth !== 320 && setRem();
+        window.addEventListener(supportsOrientationChange, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                setRem();
+            }, 300);
+        }, false);
+    })();
+</script>
+
+
+</html>

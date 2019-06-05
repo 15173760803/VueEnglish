@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>商品收藏</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .top{
+            width: 100%;
+            height: 0.6rem;
+            background-color: gainsboro;
+            border-bottom: 0.2rem solid white;
+            font-size: 0.2rem;
+            text-align: center;
+            line-height: 0.6rem;
+            color: white;
+            font-family: monospace;
+        }
+        .foot1{
+            width: 0.62rem;
+            height: 0.7rem;
+            /* background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot1img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/first2.png");
+            background-size: cover;
+            /*  background-color: #5bc0de;
+              margin-bottom: 0.03rem;*/
+            margin: 0px auto;
+
+        }
+        #p4{
+            color: springgreen;
+        }
+        #bigbox{
+            width: 100%;
+
+        }
+        .box{
+            width:99%;
+            height: 1.1rem;
+            border: 0.01rem solid gainsboro;
+            border-radius: 0.1rem;
+
+        }
+
+        img{
+            width: 1rem;
+            height: 1rem;
+            border-radius: 0.1rem;
+            float: left;
+
+        }
+        .details{
+            width: 1.5rem;
+            height: 0.3rem;
+            /* background-color: grey;*/
+            line-height: 0.3rem;
+            font-size: 0.1rem;
+            overflow: hidden;
+
+        }
+        .tittle{
+            width: 1.5rem;
+            height: 0.3rem;
+            /*background-color: grey;*/
+            font-size: 0.1rem;
+            line-height: 0.3rem;
+            overflow: hidden;
+        }
+        .ja2{
+            width: 1.5rem;
+            height: 0.2rem;
+            /*    background-color: grey;*/
+            margin-top: 0.02rem;
+        }
+        button{
+            width: 0.5rem;
+            height: 0.3rem;
+            border: none;
+            float: left;
+            margin-top: 0.35rem;
+            margin-left: 0.05rem;
+            outline: none;
+        }
+        .ja2>span:nth-child(1){
+            font-size: 0.1rem;
+            color: red;
+            float: left;
+            margin-top: 0.05rem;
+
+        }
+        .ja2>span:nth-child(2){
+            font-size: 0.14rem;
+            color: red;
+            float: left;
+        }
+        .box2{
+            float: left;
+            margin-top: 0.1rem;
+            margin-left: 0.05rem;
+        }
+        .jiesuan{
+            width: 100%;
+            height: 0.6rem;
+            background-color: red;
+            font-size: 0.15rem;
+            color: white;
+            text-align: center;
+            line-height: 0.6rem;
+            position:absolute;
+            bottom: 0.71rem;
+            position: fixed;
+        }
+        .vvv{
+            width: 100%;
+            height: 2rem;
+            background-color: white;
+            font-size: 0.15rem;
+            color: gray;
+            text-align: center;
+        }
+        .tixing{
+            width: 2.5rem;
+            height: 1.5rem;
+            background-color: gray;
+            position: absolute;
+            top:3rem;
+            left: 0.4rem;
+            border-radius:0.2rem ;
+            text-align: center;
+            display: none;
+        }
+        .tixing>p{
+            font-size: 0.15rem;
+            color: white;
+            margin-top: 0.2rem;
+        }
+        .tixing>button{
+            font-size: 0.15rem;
+            color: white;
+            float: left;
+            margin-left: 0.5rem;
+        }
+        .xin{
+            display: inline-block;
+            width: 0.22rem;
+            height: 0.2rem;
+            background-image: url("img/xin.png");
+            background-size: cover;
+            /*background-color: lightskyblue;*/
+            margin-top: 0.2rem;
+            position: absolute;
+            right: 0.02rem;
+        }
+        .fanhui{
+            display: inline-block;
+            width: 0.22rem;
+            height: 0.2rem;
+            background-image: url("img/zuo1.png");
+            background-size: cover;
+            /*background-color: lightskyblue;*/
+            margin-top: 0.2rem;
+            position: absolute;
+            left: 0.02rem;
+        }
+        .fan{
+            width: 100%;
+            height: 0.5rem;
+            background-color: gray;
+            bottom: 0rem;
+            position: absolute;
+            font-size: 0.2rem;
+            text-align: center;
+            color: white;
+            z-index: 9;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+<div class="top"></div>
+<div id="bigbox">
+    <!--
+        <div class="box">
+           <img src="img2/1.jpg" alt=""/>
+            <div class="box2">
+                <div class="details"></div>
+                <div class="tittle"></div>
+                <div class="ja2"><span>￥</span><span>45</span></div>
+            </div>
+
+            <button>删除</button>
+
+        </div>-->
+
+
+</div>
+<div class="vvv">没有更多商品了···</div>
+<button class="fan" onclick="funui()">返回</button>
+
+
+<script type="text/javascript">
+    window.onload=function(){
+        var getval=localStorage.getItem("usertell");
+        console.log(getval);
+        if(getval==null){
+            $(".tixing").fadeIn(1000);
+
+        }else{
+            var newHtml="";
+            $.ajax({
+                url:"http://localhost:3000/shou2js",
+                type:"post",
+                data:{uesrphone:getval},
+                success:function(shopsum){
+//                    console.log(shopsum);
+
+                    shopsum.forEach(function(v,i){
+
+                        iid=v.shopid;
+                        newHtml +="<div class='box'> <img src='"+v.shopsrc+"'   class='"+iid+"'/> <div class='box2'>  <div class='details'>"+ v.details+"</div>  <div class='tittle'>"+ v.shoptittlee+"</div> <div class='ja2'><span>￥</span><span>"+ v.shoppirce+"</span></div>  </div>  <button id='"+ v.how+"'>取消收藏</button>  </div>";
+                    })
+                    document.getElementById("bigbox").innerHTML=newHtml;
+
+                    var i=0;
+                    for(var i2=0;i<shopsum.length;i2++){
+                        i++;
+                    }
+                    console.log(i);
+                    document.getElementsByClassName("top")[0].innerHTML="  <span>"+getval+"收藏夹:("+i+") </span> <span class='xin'></span>";
+
+
+
+
+                    //总价格
+                    var shopsumx=0;
+                    for(var x=0;x<shopsum.length;x++){
+                        shopsumx +=shopsum[x].shoppirce;
+
+                    }
+//                    console.log(shopsumx);
+
+
+                //让收藏的商品进入详情
+     /*               shopsum.forEach(function(v,i){
+                        iid=v.shopid;
+                        console.log(iid);
+                        $("."+iid).on("click",function(){
+                            window.location.href="xiangqing.html?id="+v.shopid;//传商品的id号
+                            console.log(v.shopid);
+                        })
+                    })*/
+
+
+                    //取消收藏
+                    shopsum.forEach(function(v,i){
+                         $("#"+v.how).on("click",function(){
+//                            $(this).css("background","red");
+                            $(this).parents(".box").css("display","none");
+                            $.ajax({
+                                url:"http://localhost:3000/quxiaojs",
+                                type:"post",
+                                data:{sumx2: v.how},
+                                success:function(e){
+                                    console.log(e);
+                                }
+
+
+                            })
+
+
+                        })
+
+                    })
+
+
+
+                }
+            })
+
+
+        }
+    }
+
+   function funui(){
+       $(".zuo").css("backgroundImage","url('img/zuo2.png')");
+                      window.history.back();
+   }
+
+
+
+
+    function funclick1(){
+        window.location.href="shouye.html";
+//     $("#p1").css("color","green");
+//     $(".foot1img").css("backgroundImage"," url('img/first1.png')");
+    }
+    function funclick2(){
+        window.location.href="fenlei.html";
+    }
+    function funclick3(){
+        window.location.href="guanwang.html";
+    }
+    function funclick4(){
+        window.location.href="gouwuche.html";
+    }
+    function funclick5(){
+        window.location.href="wode.html";
+
+    }
+    function fun(){
+
+    }
+    (function () {
+        var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = document.documentElement.clientWidth;
+        var timer;
+        function setRem() {
+            clientWidth = document.documentElement.clientWidth;
+            var nowPX = clientWidth / 320 * 100;
+            document.documentElement.style.fontSize = nowPX + 'px';
+        }
+        clientWidth !== 320 && setRem();
+        window.addEventListener(supportsOrientationChange, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                setRem();
+            }, 300);
+        }, false);
+    })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+
+            body {
+
+                 width: 100%;
+
+                background-image: url("img/12.jpg");
+                /*background-size: cover;*/
+               /*   background-size: cover;*/
+                position: relative;
+            }
+            .con-r{
+                background-color: rgba(250, 179, 245, 0.5);
+                width: 100%;
+                height: 4rem;
+                margin-top: 0.1rem;
+                box-sizing: border-box;
+                padding-top: 20px;
+                padding-left:10px;
+                border-radius: 10% 10% 10% 10%;
+                font-size: 0px;
+            }
+            #submit{
+                width:205px;
+                height:50px;
+                border: none;
+                font-size: 24px;
+                color: white;
+                background-color: rgba(119, 118, 122, 0.5);
+
+            }
+            .tittlespan{
+                display: inline-block;
+                 width: 0.7rem;
+                /*background-color: #4dc71f;*/
+                text-align: right;
+                margin-right: 0.2rem;
+                font-size: 0.15rem;
+            }
+            .con-r>input{
+                width: 200px;
+                height: 30px;
+                margin-bottom: 0px;
+                outline: none;
+                /*border-radius: 10%;*/
+            }
+            .demobutton{
+                margin-top: 20px;
+                margin-left: 106px;
+            }
+
+            .con{
+                width:100%;
+                height:5.5rem;
+                /*background-color: plum;*/
+               /* position: absolute;
+                top:150px;
+                left:260px;*/
+                margin: 0px auto;
+
+               margin-top: 1rem;
+            }
+            .con-l{
+                width: 100%;
+                height: 1.3rem;
+                background-color: rgba(94,174,255,0.5);
+                border-radius: 10% 10% 10% 10%;
+                box-sizing: border-box;
+                padding-left: 0.05rem;
+            }
+            .con-l-demop{
+                width: 98%;
+                margin: 0px auto;
+                margin-top: 0.2rem;
+            }
+            .con-l-demospan{
+                width: 98%;
+                margin: 0px auto;
+                margin-top: 0.1rem;
+                font-size: 0px;
+            }
+            .con-l-demop>p{
+                font-size: 22px;
+                color:white;
+                font-weight: 700;
+            }
+            .con-l-demospan>span{
+                font-size: 16px;
+                color:white;
+            }
+            input{
+                padding-left: 10px;
+                border: none;
+                width: 2rem;
+                height:0.22rem ;
+            }
+            #success{
+                width: 100%;
+                height: 0.3rem;
+
+                text-align: center;
+                color: black;
+                font-size:0.15rem;
+                line-height: 0.3rem;
+
+            }
+            #spana{
+
+                display: block;
+                text-align: center;
+                width:100%;
+                height:0.2rem;
+                font-size: 0.15rem;
+            }
+            #spanb{
+
+                display: block;
+                text-align: center;
+                width:100%;
+                height:0.2rem;
+                font-size: 0.15rem;
+            }
+            #spanc{
+                display: block;
+                text-align: center;
+                width:100%;
+                height:0.2rem;
+                font-size: 0.15rem;
+            }
+            #spand{
+
+                display: block;
+                text-align: center;
+                width:100%;
+                height:0.2rem;
+                font-size: 0.15rem;
+            }
+            #spane{
+
+                display: block;
+                text-align: center;
+                width:100%;
+                height:0.2rem;
+                font-size: 0.15rem;
+            }
+
+           #spana{
+               font-size: 0.15rem;
+           }
+            #spanb{
+                font-size: 0.15rem;
+            }
+            #spanc{
+                font-size: 0.15rem;
+            }
+            #spand{
+                font-size: 0.15rem;
+            }
+            #spane{
+                font-size: 0.15rem;
+            }
+        #submit{
+            cursor: pointer;
+            width: 1rem;
+            height: 0.3rem;
+            margin: 0px auto;
+        }
+        .center{
+            width: 3rem;
+            /*background-color: burlywood;*/
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="con" >
+    <div class="con-l">
+        <div class="con-l-demop"><p>We shoulde consider every day lost on which we have not dance at least once.</p></div>
+        <div class="con-l-demospan"><span>每一个不曾起舞的日子都是对生命的辜负。</span></div>
+    </div>
+    <div class="con-r">
+             <div class="center">
+                 <span class="tittlespan">手机号:</span><input type="text" id="tell" placeholder="请输入邮箱" onblur="funa()" name="tellnumber" pattern="^1[34578][0-9]{9}$"/><span id="spana"></span><br>
+                 <span class="tittlespan">Email:</span><input type="email" id="email" placeholder="请输入邮箱" onblur="funb()" name="email"/><span id="spanb"></span><br>
+                 <span  class="tittlespan">用户名:</span><input type="text" id="username" placeholder="请输入用户名" onblur="func()" name="uname"/><span id="spanc"></span><br>
+                 <span  class="tittlespan">密码:</span><input type="password" id="pwd" placeholder="请输入密码" onblur="fund()" name="upwd"/><span id="spand"></span><br>
+                 <span  class="tittlespan">确认密码:</span><input type="password" id="rpwd" placeholder="再次确认密码" onblur= "fune()" name="urpwd"><span id="spane"></span><br>
+                 <span  class="tittlespan">出生年月:</span><input type="date" id="demodate" name="udate"/>
+                 <div id="success"></div>
+                 <div class="demobutton">
+                     <input type="submit" value="注&nbsp&nbsp&nbsp 册" id="submit"  onclick="funsum()"/>
+                 </div>
+             </div>
+
+
+
+    </div>
+</div>
+<script type="text/javascript">
+/*    function funa(){
+
+    }*/
+/*    function funb(){
+
+    }*/
+/*    function func(){
+
+    }
+    function fund(){
+
+    }
+    function fune(){
+
+    }*/
+
+    $(document).ready(function(){
+        $("#tell").focus();
+    })
+//对手机号进行非空，是否已被占用的验证;
+    var bool=false;
+    function funa(){
+
+        var newtell=$("#tell").val().trim();
+     if(newtell==""){
+            $("#spana").text("手机号不能为空！");
+            $("#spana").css("color","red");
+            return false;
+        }else{
+            $("#spana").text("");
+       $.ajax({
+                url:"http://localhost:3000/selectjs1",
+                type:"get",
+                data:{selecttell:newtell},
+                success:function(e){
+                    console.log(e);
+                    if(e=="1"){
+                        $("#spana").text("手机已经被注册！");
+                        $("#spana").css("color","red");
+                        bool=false;
+                        return ;
+                    }else{
+                        $("#spana").text("");
+                        bool=true;
+                        return ;
+                    }
+
+                }
+            })
+
+        }
+
+
+
+    }
+//对手机号格式进行验证：正则表达式;
+function checkPhone(){
+    var phone = document.getElementById("tell").value.trim();
+    if(!(/^1[34578]\d{9}$/.test(phone))){
+        document.getElementById("spana").innerText="手机号格式错误！";
+        document.getElementById("spana").style.color="red";
+        return false;
+    }else{
+        document.getElementById("spana").innerText="";
+        return true;
+    }
+}
+
+//对邮箱进行非空，是否已被占用的验证;
+var bool2=false;
+ function funb(){
+        var newemail=$("#email").val().trim();
+            if(newemail==""){
+            $("#spanb").text("邮箱不能为空！");
+            $("#spanb").css("color","red");
+            return false;
+        }else{
+            $("#spanb").text("");
+                $.ajax({
+                    url:"http://localhost:3000/selectjs2",
+                    type:"get",
+                    data:{selectemail:newemail},
+                    success:function(e2){
+                        console.log(e2);
+                        if(e2=="1"){
+                            $("#spanb").text("邮箱已经被注册！");
+                            $("#spanb").css("color","red");
+                            bool2=false;
+                            return;
+                        }else{
+                            $("#spanb").text("");
+                            bool2=true;
+                            return;
+                        }
+                    }
+                })
+        }
+    }
+
+//对邮箱格式的正则验证;
+function checkEmail(){
+    var emaildemo= document.getElementById("email").value.trim();
+    if(!(/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/.test(emaildemo))){
+        document.getElementById("spanb").innerText="邮箱格式错误！";
+        document.getElementById("spanb").style.color="red";
+        return false;
+    }else{
+        document.getElementById("spanb").innerText="";
+        return true;
+    }
+}
+
+
+//对用户名的验证
+    function func(){
+        var newname= $("#username").val().trim();
+        if(newname==""){
+            $("#spanc").text("用户名不能为空！");
+            $("#spanc").css("color","red");
+            return false;
+        }else if(newname.length>=50){
+            $("#spanc").text("用户名长度超出范围！");
+            $("#spanc").css("color","red");
+            return false;
+        } else{
+
+            for(var i=0;i<newname.length;i++){
+                var NUName=newname.charAt(i);
+                if(!isNaN(NUName)){
+                    $("#spanc").text("用户名中有数字！");
+                    $("#spanc").css("color","red");
+                    $("#username").select();
+                    $("#username").css({"backgroundColor":"pink"});
+                    return false;
+                }else{
+                    $("#spanc").text("");
+
+                }
+
+            }
+
+        }
+     }
+//对密码进行验证；
+    function fund(){
+        var newpwd=$("#pwd").val().trim();
+        if(newpwd==""){
+            $("#spand").text("密码不能为空！");
+            $("#spand").css("color","red");
+            return false;
+        }else if(newpwd.length<6){
+            $("#spand").text("密码长度不能小于6位！");
+            $("#spand").css("color","red");
+            $("#pwd").select();
+            $("#pwd").css("backgroundColor","pink");
+            return false;
+        }else{
+            $("#spand").text("");
+
+            return true;
+        }
+    }
+//对确定密码进行验证;
+    function fune() {
+        var newpwd=$("#pwd").val().trim();
+        var newpwd2=$("#rpwd").val().trim();
+        if(newpwd !=newpwd2){
+            $("#spane").text("两次密码不一致！");
+            $("#spane").css("color","red");
+
+            $("#rpwd").css("backgroundColor","pink");
+        }else{
+            $("#spane").text("");
+
+            return true;
+        }
+    }
+
+/* var demoform=document.querySelectorAll("form")[0];
+ demoform.addEventListener("invalid",function(event){
+     var elemt=event.target;
+
+//     console.log(elemt);
+     var newname=elemt.name;
+     var val=elemt.validity;
+     switch (newname){
+         case "tellnumber":
+             if(val.valueMissing){
+                 elemt.setCustomValidity("手机号不能为空！");
+
+             }else if(val.typeMismatch){
+//                 console.log(val.typeMismatch);
+                 elemt.setCustomValidity("请与所要求的格式保持一致。");
+             }
+             console.log(newname.length);
+             break;
+         case "email":
+             if(val.valueMissing){
+                 elemt.setCustomValidity("邮箱不能为空。");
+             }else if(val.typeMismatch){
+//                 console.log(val.typeMismatch);
+                 elemt.setCustomValidity("邮箱格式不正确。");
+             }
+             console.log(newname.length);
+             break;
+
+
+     }
+ },true)*/
+
+ function funsum(){
+     console.log(bool);
+     console.log(bool2);
+     console.log(checkPhone());
+     console.log(checkEmail());
+   if(bool==true && bool2==true && fund()==true &&fune()==true && func() ==undefined && checkPhone()==true &&checkEmail()==true){
+
+       var inputtellOne=$("input:eq(0)").val().trim();
+       var inputemailOne=$("input:eq(1)").val().trim();
+       var inputnameOne=$("input:eq(2)").val().trim();
+       var inputpwdOne=$("input:eq(3)").val().trim();
+       var inputrpwOne=$("input:eq(4)").val().trim();
+       var inputdayOne=$("input:eq(5)").val().trim();
+       var s=4;
+       console.log(inputtellOne+"--"+inputemailOne+"--"+inputnameOne+"--"+inputpwdOne+"--"+inputrpwOne+"--"+inputdayOne);
+       $.ajax({
+           url:"http://localhost:3000/registjs",
+           type:"get",
+           data:{tellOne:inputtellOne,emailOne:inputemailOne,nameOne:inputnameOne,pwdOne:inputpwdOne,rpwOne:inputrpwOne,dayOne:inputdayOne},
+           success:function(data){
+               console.log(data);
+               if(data=="2"){
+                   var st= setInterval(function(){
+                        s--;
+                        $("#success").text("注册成功"+s+"秒后跳转到登录页面!");
+                        if(s==0){
+                            window.location.href="login.html";
+                            clearInterval(st);
+                        }
+                    },1000)
+                }
+             /*  funa();
+               funb();*/
+           }
+       })
+   }
+   }
+
+
+(function () {
+    var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+    var clientWidth = document.documentElement.clientWidth;
+    var timer;
+    function setRem() {
+        clientWidth = document.documentElement.clientWidth;
+        var nowPX = clientWidth / 320 * 100;
+        document.documentElement.style.fontSize = nowPX + 'px';
+    }
+    clientWidth !== 320 && setRem();
+    window.addEventListener(supportsOrientationChange, function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            setRem();
+        }, 300);
+    }, false);
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <title>官网</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+       .con1{
+         width: 100%;
+         height: 7.2rem;
+         /*background-color:yellow;*/
+         background-image: url("img/bg_2.jpg");
+         background-size: cover;
+         /*background-repeat: no-repeat;*/
+           position: relative;
+           -webkit-transform-style: preserve-3d;
+           -moz-transform-style: preserve-3d;
+           -ms-transform-style: preserve-3d;
+           transform-style: preserve-3d;
+           perspective: 800px;
+        }
+        .header{
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+            font-size: 0.25rem;
+            height: 0.4rem;
+            position: fixed;
+            color:white;
+            z-index: 4;
+            box-sizing: border-box;
+            padding-top: 0.07rem;
+            font-family:"黑体";
+        }
+        .center1{
+            width: 80%;
+            height: 3.5rem;
+            /*background-color: yellow;*/
+            position: absolute;
+            top:1.9rem;
+            left: 0.28rem;
+            animation: center1 2s linear 0s 1;
+            /*opacity: 0;*/
+        }
+        .dazi{
+            width: 95%;
+            height:1rem;
+           /* background-color: pink;*/
+            position: absolute;
+            top: 0.7rem;
+            left: 0.05rem;
+            text-align: center;
+            /*background-image: url("img/11.jpg");*/
+            background-size: cover;
+            /*border-radius: 50px;*/
+            box-sizing: border-box;
+            padding-top:13px;
+            overflow: hidden;
+            animation:daziAnimation 0.5s linear 0s 1;
+        }
+        @keyframes daziAnimation {
+            0%{
+                -webkit-transform: translateZ(700px);
+                -moz-transform: translateZ(700px);
+                -ms-transform: translateZ(700px);
+                -o-transform: translateZ(700px);
+                transform: translateZ(700px);
+            }
+            100%{
+                -webkit-transform: translateZ(0px);
+                -moz-transform: translateZ(0px);
+                -ms-transform: translateZ(0px);
+                -o-transform: translateZ(0px);
+                transform: translateZ(0px);
+            }
+        }
+
+
+
+        .dazi>p{
+            font-size: 0.35rem;
+            color: white;
+            font-family: "dazi";
+        }
+        @font-face {
+            font-family: "dazi";
+            src:url("fontsfamily/GOOD_BRUSH/Good_Brush.ttf");
+        }
+        .center1a>span{
+            font-size: 0.15rem;
+            color: white;
+            line-height: 0.3rem;
+            font-family: "华文楷体";
+        }
+        .center1a{
+            /*background-color: pink;*/
+            font-size: 0px;
+        }
+        .center1b{
+            /*background-color: burlywood;*/
+            font-size: 0px;
+            width: 100%;
+            height: 0.4rem;
+            margin-top: 0.15rem;
+        }
+         .tell{
+             display: inline-block;
+             width: 0.4rem;
+             height: 0.4rem;
+             /*background-color: blue;*/
+             background-image: url("img/pp2.png");
+             background-size: cover;
+         }
+        .center1b>span:nth-child(2){
+            margin-left: 0.2rem;
+            font-size: 0.15rem;
+            /*float: right;*/
+        }
+        .center1b>span:nth-child(3){
+
+            font-size: 0.15rem;
+            margin-left: 0.01rem;
+        }
+     /*   .btna{
+            width: 1rem;
+            height: 0.3rem;
+
+        }*/
+        .btna{
+            font-size: 0px;
+            width: 100%;
+            text-align: center;
+
+
+        }
+        .btna>button{
+            width: 100%;
+            height: 0.4rem;
+            margin-top: 0.2rem;
+            border: none;
+            outline: none;
+        }
+        @keyframes center1 {
+            0%{
+                -webkit-transform: translateY(2rem);
+                -moz-transform: translateY(2rem);
+                -ms-transform: translateY(2rem);
+                -o-transform: translateY(2rem);
+                transform: translateY(2rem);
+                opacity: 0;
+            }
+            50%{
+                -webkit-transform: translateY(1rem);
+                -moz-transform: translateY(1rem);
+                -ms-transform: translateY(1rem);
+                -o-transform: translateY(1rem);
+                transform: translateY(1rem);
+                opacity: 0.5;
+            }
+            100%{
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .center2{
+            width:2rem;
+            height: 2rem;
+            background-color: rgba(0,0,0,0);
+            position: absolute;
+            top:5.2rem;
+            left: 1.2rem;
+            background-image: url("img/figure_4.png");
+            background-size: cover;
+            background-position: -1.6rem 0rem;
+        }
+
+        .foot1{
+            width: 0.62rem;
+            height: 0.7rem;
+            /* background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot1img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/first2.png");
+            background-size: cover;
+            /*  background-color: #5bc0de;
+              margin-bottom: 0.03rem;*/
+            margin: 0px auto;
+
+        }
+        .foot2{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*     background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot2img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/categroy1.png");
+            background-size: cover;
+            /*        background-color: #5bc0de;
+                    margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot3{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*        background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot3img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/guan2.png");
+            background-size: cover;
+            /*   background-color: #5bc0de;*/
+            /*margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot4{
+            width: 0.62rem;
+            height: 0.7rem;
+            /* background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot4img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/car1.png");
+            /* background-size:0.43rem 0.4rem;
+             background-position: 0.016rem 0rem;*/
+            background-size: cover;
+            /*   background-color: #5bc0de;
+               margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot5{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*      background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot5img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/we1.png");
+            background-size: cover;
+            /*   background-color: #5bc0de;
+               margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot p{
+            color:white;
+            font-size: 0.155rem;
+            font-weight:600;
+            margin-top: 0.05rem;
+        }
+        /*.foot p:hover{*/
+        /*color: green;*/
+        /*font-size: 0.155rem;*/
+        /*font-weight:600;*/
+        /*margin-top: 0.05rem;*/
+        /*}*/
+
+        .demofoot{
+            width: 3.1rem;
+            margin: 0px auto;
+
+        }
+        .foot{
+            width: 100%;
+            height: 0.7rem;
+            background-color:gray;
+            bottom: 0px;
+            position: fixed;
+            z-index: 999;
+        }
+        #p3{
+            color: springgreen;
+        }
+        .xx1{
+            display: inline-block;
+            width: 0.33rem;
+            height: 0.33rem;
+        /*    background-color: #4dc71f;*/
+            position: absolute;
+            top:5.3rem;
+            left:1rem;
+            background-image: url("img/x1.png");
+            background-size:cover;
+
+
+            animation: xing1 1s linear infinite;
+        }
+
+        @keyframes xing1{
+            0%{
+                -webkit-transform: scale(0.2);
+                -moz-transform: scale(0.2);
+                -ms-transform: scale(0.2);
+                -o-transform: scale(0.2);
+                transform: scale(0.2);
+                opacity: 0.3;
+            }
+            100%{
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                transform: scale(1.2);
+
+               opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<diV class="header">·爱英语·欢迎您</diV>
+<div class="con1">
+
+     <div class="dazi">
+         <p>To learn a foreign language well!</p>
+     </div>
+    <div class="center1">
+        <!--<button></button>-->
+        <div class="center1a">
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;爱英语是一家针对于英语学习的移动购物商城，覆盖了从小学到高中、四六级、考研、到雅思托福、SAT、CMAT、GRE等全部英语资料。适合从2岁到24岁所有学生群体，备考英语。不仅如此，爱英语还备有线下一对一、多对一课程，让学习英语更简单。</span>
+        </div>
+        <div class="center1b">
+            <span class="tell"></span>
+            <span>官方电话:</span><span>0012-0017-8816</span>
+        </div>
+       <div class="btna"><button onclick="guan2()">加入我们</button></div>
+    </div>
+    <span class="xx1"></span>
+    <span class="xx2"></span>
+    <div class="center2">
+
+    </div>
+
+</div>
+<div class="foot">
+    <div class="demofoot">
+        <div class="foot1" >
+            <div class="foot1img" onclick="funclick1()"></div>
+            <p id="p1">首页</p>
+        </div>
+        <div class="foot2" >
+            <div class="foot2img" onclick="funclick2()"></div>
+            <p id="p2">商品分类</p>
+        </div>
+        <div class="foot3" >
+            <div class="foot3img" onclick="funclick3()"></div>
+            <p id="p3">官网</p>
+        </div>
+        <div class="foot4">
+            <div class="foot4img" onclick="funclick4()"></div>
+            <p id="p4">购物车</p>
+        </div>
+        <div class="foot5">
+            <div class="foot5img" onclick="funclick5()"></div>
+            <p id="p5">我的</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+   function guan2(){
+       window.location.href="guanwang2.html";
+   }
+
+
+
+
+      var bool=false;
+     $(".tell").on("click",function(){
+         bool=!bool;
+         if(bool){
+             $(".tell").css("backgroundImage","url('img/pp1.png')");
+         }else{
+             $(".tell").css("backgroundImage","url('img/pp2.png')");
+         }
+
+     })
+
+      $(".foot1img").hover(function(){
+          $(".foot1img").css("backgroundImage"," url('img/first1.png')");
+          $("#p1").css("color","springgreen");
+
+      },function(){
+          $(".foot1img").css("backgroundImage"," url('img/first2.png')");
+          $("#p1").css("color","white");
+
+      })
+      $(".foot2img").hover(function(){
+          $(".foot2img").css("backgroundImage"," url('img/categroy2.png')");
+          $("#p2").css("color","springgreen");
+
+      },function(){
+          $(".foot2img").css("backgroundImage"," url('img/categroy1.png')");
+          $("#p2").css("color","white");
+
+      })
+      $(".foot3img").hover(function(){
+          $(".foot3img").css("backgroundImage"," url('img/guan2.png')");
+          $("#p3").css("color","springgreen");
+
+      },function(){
+          $(".foot3img").css("backgroundImage"," url('img/guan1.png')");
+          $("#p3").css("color","white");
+
+      })
+      $(".foot4img").hover(function(){
+          $(".foot4img").css("backgroundImage"," url('img/car2.png')");
+          $("#p4").css("color","springgreen");
+
+      },function(){
+          $(".foot4img").css("backgroundImage"," url('img/car1.png')");
+          $("#p4").css("color","white");
+
+      })
+      $(".foot5img").hover(function(){
+          $(".foot5img").css("backgroundImage"," url('img/we2.png')");
+          $("#p5").css("color","springgreen");
+
+      },function(){
+          $(".foot5img").css("backgroundImage"," url('img/we1.png')");
+          $("#p5").css("color","white");
+
+      })
+
+
+      $("#p1").hover(function(){
+          $(".foot1img").css("backgroundImage"," url('img/first1.png')");
+          $("#p1").css("color","springgreen");
+
+      },function(){
+          $(".foot1img").css("backgroundImage"," url('img/first2.png')");
+          $("#p1").css("color","white");
+
+      })
+      $("#p2").hover(function(){
+          $(".foot2img").css("backgroundImage"," url('img/categroy2.png')");
+          $("#p2").css("color","springgreen");
+
+      },function(){
+          $(".foot2img").css("backgroundImage"," url('img/categroy1.png')");
+          $("#p2").css("color","white");
+
+      })
+      $("#p3").hover(function(){
+          $(".foot3img").css("backgroundImage"," url('img/guan2.png')");
+          $("#p3").css("color","springgreen");
+
+      },function(){
+          $(".foot3img").css("backgroundImage"," url('img/guan1.png')");
+          $("#p3").css("color","white");
+
+      })
+      $("#p4").hover(function(){
+          $(".foot4img").css("backgroundImage"," url('img/car2.png')");
+          $("#p4").css("color","springgreen");
+
+      },function(){
+          $(".foot4img").css("backgroundImage"," url('img/car1.png')");
+          $("#p4").css("color","white");
+
+      })
+      $("#p5").hover(function(){
+          $(".foot5img").css("backgroundImage"," url('img/we2.png')");
+          $("#p5").css("color","springgreen");
+
+      },function(){
+          $(".foot5img").css("backgroundImage"," url('img/we1.png')");
+          $("#p5").css("color","white");
+
+      })
+
+
+      function funclick1(){
+     window.location.href="shouye.html";
+//     $("#p1").css("color","green");
+//     $(".foot1img").css("backgroundImage"," url('img/first1.png')");
+      }
+      function funclick2(){
+    window.location.href="fenlei.html";
+      }
+      function funclick3(){
+        window.location.href="guanwang.html";
+      }
+      function funclick4(){
+        window.location.href="gouwuche.html";
+      }
+      function funclick5(){
+        window.location.href="wode.html";
+
+      }
+
+
+
+
+      function fun1(){
+
+}
+
+    (function () {
+        var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = document.documentElement.clientWidth;
+        var timer;
+        function setRem() {
+            clientWidth = document.documentElement.clientWidth;
+            var nowPX = clientWidth / 320 * 100;
+            document.documentElement.style.fontSize = nowPX + 'px';
+        }
+        clientWidth !== 320 && setRem();
+        window.addEventListener(supportsOrientationChange, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                setRem();
+            }, 300);
+        }, false);
+    })();
+</script>
+</body>
+</html>

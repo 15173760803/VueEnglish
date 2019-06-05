@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+    <script src="vue.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+           background-color: #080808;
+        }
+        .con2{
+            width: 100%;
+            height:7.4rem;
+            /*background-color:yellow;*/
+            background-image: url("img/bg_2.jpg");
+            background-size: cover;
+            /*background-repeat: no-repeat;*/
+            position: relative;
+           font-size: 0px;
+
+        }
+       #job1{
+           width: 100%;
+           height: 0.5rem;
+           background-color: rgba(238, 228, 251, 0.25);
+           font-size: 0.15rem;
+           text-align: center;
+           line-height: 0.5rem;
+           color: white;
+       }
+        #job2{
+            width: 100%;
+            height: 0.5rem;
+            background-color: white;
+            font-size: 0.15rem;
+            text-align: center;
+            line-height: 0.5rem;
+            background-color: rgba(238, 228, 251, 0.25);
+            color: white;
+        }
+        #job3{
+            width: 100%;
+            height: 0.5rem;
+            background-color: white;
+            font-size: 0.15rem;
+            text-align: center;
+            line-height: 0.5rem;
+            background-color: rgba(238, 228, 251, 0.25);
+            color: white;
+        }
+        #job4{
+            width: 100%;
+            height: 0.5rem;
+            background-color: white;
+            font-size: 0.15rem;
+            text-align: center;
+            line-height: 0.5rem;
+            background-color: rgba(238, 228, 251, 0.25);
+            color: white;
+
+        }
+        #job5{
+            width: 100%;
+            height: 0.5rem;
+            background-color: white;
+            font-size: 0.15rem;
+            text-align: center;
+            line-height: 0.5rem;
+            background-color: rgba(238, 228, 251, 0.25);
+            color: white;
+        }
+       .lun{
+           width: 100%;
+           height:2rem;
+          position: absolute;
+       }
+        .span1{
+            display: block;
+            width:100%;
+            height: 3.5rem;
+            background-color: pink;
+        }
+        img{
+            width:100%;
+            height: 3.5rem;
+        }
+        .fan{
+            width: 100%;
+            height: 0.35rem;
+
+        }
+        .span2{
+            display: inline-block;
+            width: 0.35rem;
+            height: 0.35rem;
+            background-image: url("img/zuo1.png");
+            background-size: cover;
+        }
+       .con{
+           width: 100%;
+           height:2rem;
+           position: absolute;
+       }
+       .con>img{
+           width: 100%;
+           height:1.7rem;
+           display: none;
+       }
+        ul li{
+            display: inline-block;
+            width:0.3rem;
+            height: 0.3rem;
+
+            color: white;
+            font-size: 0.17rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 0.3rem;
+        }
+        ul{
+            width: 100%;
+            position: absolute;
+            top: 1.7rem;
+            text-align: center;
+
+        }
+     /*   #demodiv1{
+            margin-top: 2.4rem;
+        }*/
+        .con3{
+            width: 100%;
+            position: absolute;
+            top:2.35rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="con2">
+    <div class="fan" onclick="fanhui()"><span class="span2"></span></div>
+    <div class="lun">
+        <div class="con">
+            <img src="img/jobsv2-01.jpg" class="img1"/>
+            <img src="img/jobsv2-02.jpg" class="img2"/>
+            <img src="img/jobsv2-03.jpg" class="img3"/>
+            <img src="img/jobsv2-04.jpg" class="img4"/>
+            <img src="img/jobsv2-04.jpg" class="img5"/>
+            <ul>
+                <li class="link1">1</li>
+                <li class="link2">2</li>
+                <li class="link3">3</li>
+                <li class="link4">4</li>
+                <li class="link5">5</li>
+            </ul>
+        </div>
+    </div>
+
+<div class="con3">
+    <div id="demodiv1">
+        <div id="job1" @click="fun1()" >{{text}}</div>
+        <span class="span1" v-show="bool"  @click="fun2()"> <img :src="url" alt=""/></span>
+    </div>
+
+    <div id="demodiv2"  >
+        <div id="job2" @click="fun1()">{{text}}</div>
+        <span class="span1" v-show="bool"  @click="fun2()"><img :src="url" alt=""/></span>
+    </div>
+    <div id="demodiv3">
+        <div id="job3" @click="fun1()">{{text}}</div>
+        <span class="span1" v-show="bool"  @click="fun2()">><img :src="url" alt=""/></span>
+    </div>
+
+    <div id="demodiv4">
+        <div id="job4" @click="fun1()">{{text}}</div>
+        <span class="span1" v-show="bool"  @click="fun2()"><img :src="url" alt=""/></span>
+    </div>
+
+    <div id="demodiv5">
+        <div id="job5" @click="fun1()">{{text}}</div>
+        <span class="span1" v-show="bool"  @click="fun2()"><img :src="url" alt=""/></span>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+var mv1=new  Vue({
+    el:"#demodiv1",
+    data:{
+        bool:false,
+        text:"Android开发工程师",
+        url:"job/android_WPS.png"
+    },
+    methods:{
+        fun1:function(){
+            this.bool=true
+        },
+        fun2:function(){
+            this.bool=false
+        }
+
+    }
+})
+
+var mv2=new  Vue({
+    el:"#demodiv2",
+    data:{
+        bool:false,
+        text:"高级英语编辑",
+        url:"job/english_WPS.png"
+    },
+    methods:{
+        fun1:function(){
+            this.bool=true
+        },
+        fun2:function(){
+            this.bool=false
+        }
+
+    }
+})
+var mv3=new  Vue({
+    el:"#demodiv3",
+    data:{
+        bool:false,
+        text:"ios开发工程师",
+        url:"job/ios_WPS.png"
+    },
+    methods:{
+        fun1:function(){
+            this.bool=true
+        },
+        fun2:function(){
+            this.bool=false
+        }
+
+    }
+})
+var mv4=new  Vue({
+    el:"#demodiv4",
+    data:{
+        bool:false,
+        text:"server服务器开发工程师",
+        url:"job/sever_WPS.png"
+    },
+    methods:{
+        fun1:function(){
+            this.bool=true
+        },
+        fun2:function(){
+            this.bool=false
+        }
+
+    }
+})
+var mv5=new  Vue({
+    el:"#demodiv5",
+    data:{
+        bool:false,
+        text:"UI设计师",
+        url:"job/ui_WPS.png"
+    },
+    methods:{
+        fun1:function(){
+            this.bool=true
+        },
+        fun2:function(){
+            this.bool=false
+        }
+
+    }
+})
+function fanhui(){
+    window.location.href="guanwang.html";
+}
+
+//轮播图
+//            1.创建一个变量 用来控制具体显示的是那个内容
+var page=1;
+function lun(){
+//              2.把页面中的所有图片现隐藏并且要把所有的指示器变成黑色
+    for(var i=1;i<6;i++){
+//                    (2-1)开始隐藏所有的图片
+        $(".img"+i).css({"display":"none"});
+//                    (2-2)把所有的指示器变成黑色
+        $(".link"+i).css({"background-color":"black"});
+    }
+//                3.显示指定的内容并且指定的指示器变成红色
+    $(".img"+page).css("display","block");
+    $(".link"+page).css("background-color","red");
+    page++;
+//                4.设置显示图片变量的最大值
+    if(page>=6){
+        page=1
+    }
+}
+
+
+
+var st=setInterval(lun,1000)
+
+//            设置鼠标移入的时候暂停
+$(".con").mouseenter(function(){
+    clearInterval(st)
+})
+//            鼠标移出开始
+$(".con").mouseleave(function(){
+    st=setInterval(lun,1500)
+})
+
+
+
+
+    function fun() {
+
+    }
+
+    (function () {
+        var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = document.documentElement.clientWidth;
+        var timer;
+        function setRem() {
+            clientWidth = document.documentElement.clientWidth;
+            var nowPX = clientWidth / 320 * 100;
+            document.documentElement.style.fontSize = nowPX + 'px';
+        }
+        clientWidth !== 320 && setRem();
+        window.addEventListener(supportsOrientationChange, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                setRem();
+            }, 300);
+        }, false);
+    })();
+</script>
+
+</body>
+</html>

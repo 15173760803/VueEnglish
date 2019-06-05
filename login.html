@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        *{
+
+            margin: 0px;
+            padding:0px;
+
+        }
+
+            .con{
+                width: 100%;
+                height:7.8rem;
+                background-image: url("img/timg.jpg");
+                /*background-size: cover;*/
+                /*display: flex;*/
+                /*flex-direction: column;*/
+            }
+            .res{
+                width:100%;
+                height: 0.4rem;
+                background-color: rgba(53, 105, 210, 0.0);
+                position: absolute;
+                left: 0.1rem;
+                top:1.1rem;
+                text-align: center;
+                box-sizing: border-box;
+                padding-top: 0.1rem;
+                display: none;
+
+            }
+            .loginbox{
+                width: 100%;
+                height:2.1rem;
+                /*position: absolute;*/
+                /*font-size: 0px;*/
+                top: 3rem;
+
+            }
+            .time{
+                flex:1;
+                background-color: rgba(212, 225, 209, 0.2);
+
+            }
+            .demoinput{
+                width: 95%;
+                height:1.6rem;
+               /* position: absolute;
+                top: 2.4rem;*/
+                background-color: rgba(60, 22, 225, 0.5);
+
+                border-radius: 0.5rem ;
+                padding-top: 0.4rem;
+                margin-left: 0.1rem;
+                top: -0.5rem;
+
+                position: relative;
+                font-size: 0px
+            }
+            .demoinput>input{
+                background-color: rgba(60, 22, 225, 0.0);
+                width: 200px;
+                font-size: 16px;
+                height: 30px;
+                box-sizing: border-box;
+                padding-left: 0.2rem;
+                outline: none;
+                border: 1px gainsboro solid;
+            }
+            .tittlespan2{
+                display: inline-block;
+                width: 0.6rem;
+                text-align: right;
+                background-color: rgba(60, 22, 225, 0.0);
+                margin-right: 10px;
+                font-size: 18px;
+                height: 30px;
+                margin-left: 0.2rem;
+            }
+            #loginbutton{
+                margin-top: 10px;
+                margin-left: 70px;
+                border: none;
+                width: 200px;
+                height: 50px;
+                background-color: rgba(51, 47, 225, 0.5);
+                font-size: 24px;
+                color: white;
+            }
+            .time1{
+                width:2.7rem;
+                height: 2.7rem;
+                margin: 0px auto;
+                margin-top: 0px;
+                /*background-color: rgba(0,0,225,0.3);*/
+                background-color: rgba(212, 225, 209, 0.0);
+            }
+            canvas{
+
+
+                background-color:rgba(212, 225, 209, 0.0);
+            }
+            .tittle1{
+                width:100%;
+                height: 1rem;
+                /*background-color:rgba(212, 225, 209, 0.0);*/
+                box-sizing: border-box;
+                /*padding-top:85px;*/
+                text-align: center;
+                font-size: 0px;
+            }
+            @font-face {
+                font-family:"selectfonts1";
+                src: url("fontsfamily/LMS_Lance_s_Letter_Blocks.ttf");
+
+            }
+            @font-face {
+                font-family:"selectfonts3";
+                src: url("fontsfamily/WillyWonka.ttf");
+            }
+            .fonts1{
+                font-size: 0.2rem;
+                font-family:"selectfonts1";
+                background-color: rgba(60, 22, 225, 0.0);
+
+            }
+            .fonts2{
+                font-size: 0.15rem;
+                background-color: rgba(60, 22, 225, 0.0);
+                font-family:"黑体";
+
+            }
+            .fonts3{
+                width: 100%;
+                font-size:0.4rem;
+                color: white;
+                font-family:"selectfonts3";
+                text-align: center;
+                display: block;
+            }
+
+            .tittle2{
+                width:100%;
+                height:1.5rem;
+                text-align: center;
+                /*display:none;*/
+                position: relative;
+                top:0rem;
+            }
+            .fonts4{
+                font-size: 0.14rem;
+                color: white;
+                background-color: rgba(60, 22, 225, 0.0);
+                display: block;
+            }
+
+
+        #alert{
+            display: block;
+            background-color: rgba(53, 105, 210, 0.0) ;
+            width:350px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .res>h4>a{
+            background-color: rgba(53, 105, 210, 0.1);
+            display: inline-block;
+            font-size:20px;
+            color: white;
+            text-decoration: none;
+        }
+        .res>h4{
+
+            font-size:20px;
+            color: white;
+        }
+        #loginbutton {
+            cursor: pointer;
+            margin-left: 0.8rem;
+            outline: none;
+            border: none;
+        }
+        input{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="con">
+    <div class="time">
+        <div class="tittle1">
+          <span class="fonts1">Youth means limitless possibilities</span><br>
+          <span class="fonts2">年轻就是无限可能！</span>
+        </div>
+        <div class="time1">
+            <canvas id="time" width="400" height="400"></canvas>
+        </div>
+    </div>
+    <div class="loginbox">
+        <div class="tittle2">
+            <span class="fonts3">Welcome to the login page</span>
+            <span class="fonts4">欢迎来到登录页面！</span>
+            <div class="res">
+                <h4>还没有注册？去<a href="regist.html">注册(点我注册)</a></h4>
+            </div>
+        </div>
+    </div>
+        <div class="demoinput">
+            <span class="tittlespan2">手机号:</span><input type="text" id="tell2" placeholder="请输入手机号" onblur="funa2()" name="tellnumber2"/><span id="spana2"></span><br>
+            <span  class="tittlespan2">密码:</span><input type="password" id="pwd2" placeholder="请输入密码" onblur="fund2()" name="upwd2"/><span id="spand2"></span><br>
+            <span id="alert"></span>
+            <button id="loginbutton" onclick="funlogin() ">登 &nbsp&nbsp&nbsp 录</button>
+        </div>
+
+
+</div>
+<script type="text/javascript">
+    var democ=document.querySelector("#time");
+    var ct=democ.getContext("2d");
+    setInterval(function () {
+        var demodate=new Date();
+        var h=demodate.getHours();
+        //由于返回的是24小时制所以转换成12小时制;
+        var newh=h>12?h-12:h;
+        var m=demodate.getMinutes();
+        var s=demodate.getSeconds();
+        //由于时针在没有到正点的时候不会指向正常的时间点
+        newh+=m/60;
+        // 由于页面绘制的内容会重叠 所以要使用清空的方式把之前的内容删掉之后重新添加
+        ct.clearRect(0,0,400,400);
+        //表框;
+        ct.beginPath();
+        ct.arc(155,160,150,0,2*Math.PI,false);
+        ct.strokeStyle="black";
+        ct.lineWidth=5;
+        ct.stroke();
+        ct.closePath();
+        ct.clip();
+        //插背景图;
+        var img=new Image;
+        img.src="img/1.jpg";
+        ct.drawImage(img,-160,-200);
+//时刻度
+        for(var i=1;i<=12;i++){
+            ct.beginPath();
+            ct.save();
+            ct.translate(155,160);
+            ct.rotate(i*30*Math.PI/180);
+            ct.moveTo(0,-145);
+            ct.lineTo(0,-120);
+            ct.strokeStyle="pink";
+            ct.lineWidth=4;
+            ct.stroke();
+            ct.restore();
+            ct.closePath();
+        }
+
+
+//分刻度
+        for(var x=0;x<=60;x++){
+            ct.beginPath();
+            ct.save();
+            ct.translate(155,160);
+            ct.rotate(x*6*Math.PI/180);
+            ct.moveTo(0,-145);
+            ct.lineTo(0,-133);
+            ct.strokeStyle="pink";
+            ct.lineWidth=2;
+            ct.stroke();
+            ct.restore();
+            ct.closePath();
+        }
+
+//时针
+        ct.beginPath();
+        ct.save();
+        ct.translate(155,160);
+        ct.rotate(newh*30*Math.PI/180);
+        ct.moveTo(0,0);
+        ct.lineTo(0,-80);
+        ct.strokeStyle="black";
+        ct.lineWidth=4;
+        ct.stroke();
+        ct.restore();
+        ct.closePath();
+//分针
+        ct.beginPath();
+        ct.save();
+        ct.translate(155,160);
+        ct.rotate(m*6*Math.PI/180);
+        ct.moveTo(0,0);
+        ct.lineTo(0,-105);
+        ct.strokeStyle="black";
+        ct.lineWidth=3;
+        ct.stroke();
+        ct.restore();
+        ct.closePath();
+//秒针
+        ct.beginPath();
+        ct.save();
+        ct.translate(155,160);
+        ct.rotate(s*6*Math.PI/180);
+        ct.moveTo(0,10);
+        ct.lineTo(0,-110);
+        ct.strokeStyle="gray";
+        ct.lineWidth=2;
+        ct.stroke();
+        ct.restore();
+        ct.closePath();
+//秒针下圆
+        ct.beginPath();
+        ct.save();
+        ct.translate(155,160);
+        ct.arc(0,0,4,0,2*Math.PI,false);
+        ct.fillStyle="pink";
+        ct.strokeStyle="gray";
+        ct.lineWidth=2;
+        ct.stroke();
+        ct.fill();
+        ct.restore();
+        ct.closePath();
+//秒针上圆
+        ct.beginPath();
+        ct.save();
+        ct.translate(155,160);
+        ct.rotate(s*6*Math.PI/180);
+        ct.arc(0,-90,4,0,2*Math.PI,false);
+        ct.fillStyle="pink";
+        ct.strokeStyle="gray";
+        ct.lineWidth=2;
+        ct.stroke();
+        ct.fill();
+        ct.restore();
+        ct.closePath();
+    },1000)
+    function funa2(){
+
+    }
+    function fund2(){
+
+    }
+
+    $(".demoinput").hover(function(){
+
+
+       $(".res").fadeIn(2000);
+   },function(){
+
+       $(".res").fadeOut(2000);
+   })
+
+    $(document).ready(function(){
+        $("#tell2").focus()
+    })
+
+    function funlogin(){
+        var logintell=$("#tell2").val().trim();
+        var loginpwd=$("#pwd2").val().trim();
+        var loginx=4;
+        $.ajax({
+            url:"http://localhost:3000/loginjs",
+            type:"post",
+            data:{loginT:logintell,loginP:loginpwd},
+            success:function(logindata){
+                console.log(logindata);
+                if(logindata==1){
+                    var st=setInterval(function(){
+                        loginx--;
+                        localStorage.setItem("usertell",logintell);
+                        $("#alert").text("登陆成功"+loginx+"秒后跳转！");
+                        $("#alert").css("color","white");
+                        if(loginx==0){
+                            window.location.href="wode.html";
+                            clearInterval(st);
+                        }
+                    },1000)
+                }else{
+                    $("#alert").text("用户名或密码错误!!!");
+                    $("#alert").css("color","red");
+                }
+            }
+
+        })
+    }
+function fun(){}
+    (function () {
+        var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = document.documentElement.clientWidth;
+        var timer;
+        function setRem() {
+            clientWidth = document.documentElement.clientWidth;
+            var nowPX = clientWidth / 320 * 100;
+            document.documentElement.style.fontSize = nowPX + 'px';
+        }
+        clientWidth !== 320 && setRem();
+        window.addEventListener(supportsOrientationChange, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                setRem();
+            }, 300);
+        }, false);
+    })();
+</script>
+
+</body>
+</html>

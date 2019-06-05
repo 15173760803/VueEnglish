@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta charset="UTF-8">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <title>商品分类</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .foot1{
+            width: 0.62rem;
+            height: 0.7rem;
+            /* background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot1img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/first2.png");
+            background-size: cover;
+            /*  background-color: #5bc0de;
+              margin-bottom: 0.03rem;*/
+            margin: 0px auto;
+
+        }
+        .foot2{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*     background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot2img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/categroy2.png");
+            background-size: cover;
+            /*        background-color: #5bc0de;
+                    margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot3{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*        background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot3img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/guan1.png");
+            background-size: cover;
+            /*   background-color: #5bc0de;*/
+            /*margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot4{
+            width: 0.62rem;
+            height: 0.7rem;
+            /* background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot4img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/car1.png");
+            /* background-size:0.43rem 0.4rem;
+             background-position: 0.016rem 0rem;*/
+            background-size: cover;
+            /*   background-color: #5bc0de;
+               margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot5{
+            width: 0.62rem;
+            height: 0.7rem;
+            /*      background-color: black;*/
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0.05rem;
+        }
+        .foot5img{
+            width: 0.3rem;
+            height: 0.3rem;
+            background-image: url("img/we1.png");
+            background-size: cover;
+            /*   background-color: #5bc0de;
+               margin-bottom: 0.015rem;*/
+            margin: 0px auto;
+        }
+        .foot p{
+            color:white;
+            font-size: 0.155rem;
+            font-weight:600;
+            margin-top: 0.05rem;
+        }
+        /*.foot p:hover{*/
+        /*color: green;*/
+        /*font-size: 0.155rem;*/
+        /*font-weight:600;*/
+        /*margin-top: 0.05rem;*/
+        /*}*/
+
+        .demofoot{
+            width: 3.1rem;
+            margin: 0px auto;
+
+        }
+        .foot{
+            width: 100%;
+            height: 0.7rem;
+            background-color:gray;
+            bottom: 0px;
+            position: fixed;
+            z-index: 999;
+        }
+        #p2{
+            color: springgreen;
+        }
+        .header{
+            width: 100%;
+            height: 0.4rem;
+            z-index:3;
+            background-color: gray;
+            /*background-color: rgba(120, 119, 108, 0.35);*/
+            font-size: 0px;
+            text-align: center;
+            position: fixed;
+            top: 0px;
+
+        }
+        .header>span:nth-child(1){
+            display: inline-block;
+            font-size: 0.17rem;
+            /*background-color: #4dc71f;*/
+            color: white;
+            margin-top: 0.1rem;
+            font-family: "黑体";
+
+        }
+        .header>span:nth-child(2){
+            display: inline-block;
+            width: 0.3rem;
+            height: 0.3rem;
+            /*background-color: aquamarine;*/
+            position: absolute;
+            margin-left: 0.1rem;
+            margin-top: 0.05rem;
+            background-image: url("img/book2.png");
+            background-size: cover;
+        }
+        .contanier{
+            width: 100%;
+
+     /*       background-color: yellow;*/
+            z-index: 1;
+            margin-top: 0.4rem;
+        }
+
+     .nav{
+         width: 1rem;
+         height: 100%;
+         background-color:white;
+         z-index: 2;
+         font-size: 0px;
+         /*left:-200px;*/
+         position: absolute;
+         left: -1rem;
+         z-index: 5;
+     }
+   /*  .nav>ul{
+         margin-top: 0.4rem;
+     }*/
+        .nav{
+            box-sizing: border-box;
+            /*padding-top: 0.4rem;*/
+               position: fixed;
+        }
+     .nav>ul>li{
+       font-size: 0.14rem;
+         text-decoration: none;
+         color: black;
+     }
+     .nav>ul{
+            list-style-type: none;
+      }
+        .nav>ul>li{
+             width: 1rem;
+            height: 0.5rem;
+            background-color: #dddddd;
+            text-align: center;
+            line-height: 0.5rem;
+
+        }
+        .nav-r{
+            width:0.3rem;
+            height:0.3rem;
+            /*background-color: antiquewhite;*/
+            position: absolute;
+            left: 0rem;
+            top: 2rem;
+            background-image: url("img/ff.png");
+            background-size: cover;
+            position: fixed;
+            z-index: 4;
+        }
+      /*  .nav>ul>li:hover{
+            background-color: green;
+        }*/
+     .shu2sum{
+         width: 100%;
+         font-size: 0px;
+     }
+     .shu2{
+         /*top:0px;*/
+         width: 49%;
+         height: 2.3rem;
+        /* background-color:burlywood;*/
+         float: left;
+         border-left: 0.01rem solid darkgrey;
+     }
+     .shu2>div:nth-child(1)>img{
+            width: 100%;
+            height: 1.525rem;
+            position:relative;
+        }
+       .shu2>div:nth-child(2){
+           box-sizing: border-box;
+           padding-top: 0.1rem;
+           overflow: hidden;
+       }
+        .shu2>div:nth-child(2)>p{
+            font-size: 0.14rem;
+
+        }
+        .shu2>div:nth-child(2){
+            height: 0.4rem;
+            width: 100%;
+            background-color: pink;
+        }
+       .jia3{
+           font-size: 0.2rem;
+           color: red;
+       }
+        .shu2>div:nth-child(3)>span:nth-child(1){
+            font-size: 0.14rem;
+            color: red;
+        }
+        .shu2span {
+            width: 0.255rem;
+            height: 0.255rem;
+            /* background-color: cyan; */
+            display: inline-block;
+            float: right;
+            background-image: url(img/ll1.png);
+            background-size: cover;
+        }
+        .shu2>div:nth-child(3){
+            font-size: 0px;
+            background-color: #dddddd;
+           bottom: 0px;
+        }
+        .nono{
+            width: 100%;
+            height: 1rem;
+            text-align: center;
+            font-size: 0.15rem;
+        }
+        .clear{
+            clear: both;
+        }
+        .scaledemo{
+            -webkit-transform: scale(1.2, 1.2);
+            -moz-transform: scale(1.2, 1.2);
+            -ms-transform: scale(1.2, 1.2);
+            -o-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+
+            -webkit-transition:all 1s 0s linear;
+            -moz-transition: all 1s 0s linear;
+            -ms-transition: all 1s 0s linear;
+            -o-transition: all 1s 0s linear;
+            transition: all 1s 0s linear;
+        }
+        .nav>ul>li:nth-child(1){
+            background-color: green;
+        }
+        .nav>li:nth-child(9){
+            font-size: 0px;
+        }
+        #min{
+            width:0.4rem;
+            height: 0.2rem;
+            font-size: 0.1rem;
+            color: black;
+            text-align: center;
+        }
+        #max{
+            width:0.4rem;
+            height: 0.2rem;
+            font-size: 0.1rem;
+            color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <span>图书列表</span>
+    <span></span>
+
+</div>
+
+<div class="contanier">
+    <div class="nav">
+        <ul>
+            <li  onclick="funli1()">所有英语书籍</li>
+            <li  onclick="funli2()">幼儿英语</li>
+            <li onclick="funli3()">小学初中英语</li>
+            <li onclick="funli4()">高中英语资料</li>
+            <li onclick="funli5()">四六级</li>
+            <li onclick="funli6()">考研党</li>
+            <li onclick="funli7()">雅思托福</li>
+            <li onclick="funli8()">英文课外读物</li>
+            <li>
+                <input type="text" placeholder="最低价" id="min"/>
+                <input type="text" placeholder="最高价" id="max"/>
+            </li>
+            <li onclick="funli10()">搜价格</li>
+        </ul>
+    </div>
+    <div class="nav-r" onclick="funjc()"></div>
+    <div class="shu2sum">
+          <!--<div class="shu2">-->
+              <!--<div><img src="img2/1.jpg" /></div>-->
+              <!--<div><p>四级必备词汇书+送修炼手册</p></div>-->
+              <!--<div>-->
+                  <!--<span>￥</span>-->
+                  <!--<span id="jia3">44.9</span>-->
+                  <!--<span class="shu2span" onclick="lve()"></span>-->
+              <!--</div>-->
+
+
+          <!--</div>-->
+    </div>
+    <div class="clear"></div>
+   <div class="nono">没有更多啦····</div>
+
+</div>
+
+
+
+<div class="foot">
+    <div class="demofoot">
+        <div class="foot1" >
+            <div class="foot1img" onclick="funclick1()"></div>
+            <p id="p1">首页</p>
+        </div>
+        <div class="foot2" >
+            <div class="foot2img" onclick="funclick2()"></div>
+            <p id="p2">商品分类</p>
+        </div>
+        <div class="foot3" >
+            <div class="foot3img" onclick="funclick3()"></div>
+            <p id="p3">官网</p>
+        </div>
+        <div class="foot4">
+            <div class="foot4img" onclick="funclick4()"></div>
+            <p id="p4">购物车</p>
+        </div>
+        <div class="foot5">
+            <div class="foot5img" onclick="funclick5()"></div>
+            <p id="p5">我的</p>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $.ajax({
+        url:"http://localhost:3000/quanbujs",
+        type:"post",
+        success:function(e1){
+            console.log(e1);
+            var newHtml3="";
+           e1.forEach(function(v,i){
+                var iid= v.id;
+                newHtml3 +="<div class='shu2'>  <div  ><img  src='"+ v.srcc+"'  class='ddemotu' id='"+iid+"'/></div>  <div ><p>"+ v.tittlee+"</p></div> <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div></div>"
+
+//               /* console.log(iid);*/
+//
+                /*   $("#"+iid).on("click",function(){
+
+
+
+                 console.log(iid);
+                 })*/
+
+
+            })
+            $(".shu2sum").html(newHtml3);
+
+            e1.forEach(function(v,i){
+                var iid= v.id;
+                   $("#"+iid).on("click",function(){
+                  window.location.href="xiangqing.html?id="+iid;//传商品的id号
+                  console.log(iid);
+                 })
+
+
+            })
+
+//放大
+            var bool=false;
+            $(".shu2span").on("click",function(){
+                bool=!bool;
+                if(bool){
+                    console.log(this);
+                    $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                    $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                    $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                }else{
+                    $(this).css("backgroundImage","url('img/ll1.png')");
+                    $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                    $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                }
+
+            })
+
+        }
+    })
+
+
+    function funli1(){
+        document.getElementsByTagName("li")[0].style.backgroundColor="green";
+        document.getElementsByTagName("li")[1].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[2].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[3].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[4].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[5].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[6].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[7].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[9].style.backgroundColor="#dddddd";
+        $.ajax({
+            url:"http://localhost:3000/quanbujs",
+            type:"post",
+            success:function(e1){
+                console.log(e1);
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2'>  <div><img src='"+ v.srcc+"' class='ddemotu' id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+
+                })
+                $(".shu2sum").html(newHtml3);
+
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+
+
+
+
+//放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+
+    }
+
+    function funli2(){
+
+        document.getElementsByTagName("li")[0].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[1].style.backgroundColor="green";
+        document.getElementsByTagName("li")[2].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[3].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[4].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[5].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[6].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[7].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[9].style.backgroundColor="#dddddd";
+
+        $.ajax({
+            url:"http://localhost:3000/youerjs",
+            type:"post",
+            success:function(e1){
+                console.log(e1);
+
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2' >  <div><img src='"+ v.srcc+"' class='ddemotu' id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+                    console.log(v.id);
+               })
+
+                $(".shu2sum").html(newHtml3);
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+
+
+
+
+//放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+
+    }
+    function funli3(){
+        document.getElementsByTagName("li")[0].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[1].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[2].style.backgroundColor="green";
+        document.getElementsByTagName("li")[3].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[4].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[5].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[6].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[7].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[9].style.backgroundColor="#dddddd";
+        $.ajax({
+            url:"http://localhost:3000/xiaoxuejs",
+            type:"post",
+            success:function(e1){
+                console.log(e1);
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2' >  <div><img src='"+ v.srcc+"' class='ddemotu' id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+                    console.log(v.id);
+                })
+
+                $(".shu2sum").html(newHtml3);
+
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+
+
+
+
+
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+
+    }
+
+    function funli4(){
+        document.getElementsByTagName("li")[0].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[1].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[2].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[3].style.backgroundColor="green";
+        document.getElementsByTagName("li")[4].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[5].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[6].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[7].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[9].style.backgroundColor="#dddddd";
+        $.ajax({
+            url:"http://localhost:3000/gaozhongjs",
+            type:"post",
+            success:function(e1){
+                console.log(e1);
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2'>  <div><img src='"+ v.srcc+"' class='ddemotu' id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+                    console.log(v.id);
+                })
+
+                $(".shu2sum").html(newHtml3);
+
+
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+
+//放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+
+
+    }
+
+    function funli5(){
+        document.getElementsByTagName("li")[0].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[1].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[2].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[3].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[4].style.backgroundColor="green";
+        document.getElementsByTagName("li")[5].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[6].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[7].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[9].style.backgroundColor="#dddddd";
+        $.ajax({
+            url:"http://localhost:3000/siliujs",
+            type:"post",
+            success:function(e1){
+                console.log(e1);
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2'>  <div><img src='"+ v.srcc+"' class='ddemotu' id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+                    console.log(v.id);
+                })
+
+                $(".shu2sum").html(newHtml3);
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+//放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+
+    }
+
+    function funli6(){
+        document.getElementsByTagName("li")[0].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[1].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[2].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[3].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[4].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[5].style.backgroundColor="green";
+        document.getElementsByTagName("li")[6].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[7].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[9].style.backgroundColor="#dddddd";
+        $.ajax({
+            url:"http://localhost:3000/kaoyanjs",
+            type:"post",
+            success:function(e1){
+                console.log(e1);
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2' >  <div><img src='"+ v.srcc+"' class='ddemotu' id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+                    console.log(v.id);
+                })
+
+                $(".shu2sum").html(newHtml3);
+
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+//放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+    }
+
+    function funli7(){
+        document.getElementsByTagName("li")[0].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[1].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[2].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[3].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[4].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[5].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[6].style.backgroundColor="green";
+        document.getElementsByTagName("li")[7].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[9].style.backgroundColor="#dddddd";
+        $.ajax({
+            url:"http://localhost:3000/yasijs",
+            type:"post",
+            success:function(e1){
+                console.log(e1);
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2' >  <div><img src='"+ v.srcc+"' class='ddemotu'  id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+                    console.log(v.id);
+                })
+
+                $(".shu2sum").html(newHtml3);
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+//放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+    }
+    function funli8(
+
+    ){
+        document.getElementsByTagName("li")[0].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[1].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[2].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[3].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[4].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[5].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[6].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[7].style.backgroundColor="green";
+        document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+        document.getElementsByTagName("li")[9].style.backgroundColor="#dddddd";
+        $.ajax({
+            url:"http://localhost:3000/kewaijs",
+            type:"post",
+            success:function(e1){
+                console.log(e1);
+                var newHtml3="";
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2' >  <div><img src='"+ v.srcc+"' class='ddemotu' id='"+iid+"'/></div>     <div><p>"+ v.tittlee+"</p></div>  <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div> </div>"
+                    console.log(v.id);
+                })
+
+                $(".shu2sum").html(newHtml3);
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;
+                        console.log(iid);
+                    })
+
+
+                })
+//放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+    }
+    function funli10(){
+    document.getElementsByTagName("li")[0].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[1].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[2].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[3].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[4].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[5].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[6].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[7].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[8].style.backgroundColor="#dddddd";
+    document.getElementsByTagName("li")[9].style.backgroundColor="green";
+        var shopmin=document.getElementById("min").value.trim();
+        var shopmax=document.getElementById("max").value.trim();
+        $.ajax({
+            url:"http://localhost:3000/quanbujs",
+            type:"post",
+            success:function(e1){
+
+                var newHtml3="";
+/*                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2'>  <div  ><img  src='"+ v.srcc+"'  class='ddemotu' id='"+iid+"'/></div>  <div ><p>"+ v.tittlee+"</p></div> <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div></div>"
+
+//               /!* console.log(iid);*!/
+//
+                    /!*   $("#"+iid).on("click",function(){
+
+
+
+                     console.log(iid);
+                     })*!/
+                })*/
+
+                var newshop=e1.filter(function(v,i){
+                    return v.pirce>shopmin && v.pirce<shopmax;
+                })
+                console.log(newshop);
+                newshop.forEach(function(v,i){
+                    var iid= v.id;
+                    newHtml3 +="<div class='shu2'>  <div  ><img  src='"+ v.srcc+"'  class='ddemotu' id='"+iid+"'/></div>  <div ><p>"+ v.tittlee+"</p></div> <div><span>￥</span> <span class='jia3'>"+ v.pirce+"</span> <span class='shu2span'></span> </div></div>"
+                })
+
+                $(".shu2sum").html(newHtml3);
+
+                e1.forEach(function(v,i){
+                    var iid= v.id;
+                    $("#"+iid).on("click",function(){
+                        window.location.href="xiangqing.html?id="+iid;//传商品的id号
+                        console.log(iid);
+                    })
+                })
+
+//放大
+                var bool=false;
+                $(".shu2span").on("click",function(){
+                    bool=!bool;
+                    if(bool){
+                        console.log(this);
+                        $(this).css("backgroundImage","url('img/ll2.png')");
+//                        $(".shu1>div:nth-child(1)>img").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").addClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                    }else{
+                        $(this).css("backgroundImage","url('img/ll1.png')");
+                        $(this).parents(".shu2").find(".ddemotu").removeClass("scaledemo");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","10");
+                        $(this).parents(".shu2").find(".ddemotu").css("zIndex","3");
+                    }
+
+                })
+
+            }
+        })
+
+    }
+
+
+
+
+
+//设置导航弹出
+    var bool=false;//默认隐藏
+    function funjc(){
+        bool=!bool;
+        if(bool){
+            document.getElementsByClassName("nav")[0].style.left="0rem";
+            document.getElementsByClassName("nav-r")[0].style.left="1rem";
+
+
+
+        }else{
+            document.getElementsByClassName("nav")[0].style.left="-1rem";
+            document.getElementsByClassName("nav-r")[0].style.left="0rem";
+
+        }
+    }
+
+//页面跳转
+    function funclick1(){
+        window.location.href="shouye.html";
+//     $("#p1").css("color","green");
+//     $(".foot1img").css("backgroundImage"," url('img/first1.png')");
+    }
+    function funclick2(){
+    window.location.href="fenlei.html";
+    }
+    function funclick3(){
+        window.location.href="guanwang.html";
+    }
+    function funclick4(){
+        window.location.href="gouwuche.html";
+    }
+    function funclick5(){
+        window.location.href="wode.html";
+
+    }
+
+
+    (function () {
+        var supportsOrientationChange = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = document.documentElement.clientWidth;
+        var timer;
+        function setRem() {
+            clientWidth = document.documentElement.clientWidth;
+            var nowPX = clientWidth / 320 * 100;
+            document.documentElement.style.fontSize = nowPX + 'px';
+        }
+        clientWidth !== 320 && setRem();
+        window.addEventListener(supportsOrientationChange, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                setRem();
+            }, 300);
+        }, false);
+    })();
+</script>
+</body>
+</html>
